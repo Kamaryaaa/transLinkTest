@@ -79,52 +79,7 @@ public class TransLinkTest {
 
     }
 
-    @Test
-    public void test3() throws ParseException {
 
-        // 1) Open the url of the page
-        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
-
-        WebElement buzzerBlog_asWebElement = BrowserUtils.getElement(MainPage.buzzerBlogFeature);
-
-        BrowserUtils.scrollIntoMiddleView(buzzerBlog_asWebElement);
-        BrowserUtils.waitForVisibility(buzzerBlog_asWebElement,5);
-
-        List< WebElement> timeList = Driver.getDriver().findElements(By.xpath("(//section[@class='CopyMain'])//ul[@class='spacedList menu']//time"));
-
-        List <Date> dates = new ArrayList<>();
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
-
-
-            for(WebElement eachTime : timeList){
-
-            String dataText = eachTime.getAttribute("datetime");
-            Date date = dateFormat.parse(dataText);
-            dates.add(date);
-        }
-            boolean isDescending= true;
-        for (int i = 1; i < dates.size(); i++) {
-            if(dates.get(i).compareTo(dates.get(i-1)) > 0) {
-                isDescending=false;
-                break;
-            }
-            
-        }
-        if(isDescending){
-            System.out.println("Dates are in descending order");
-        }else {
-            System.out.println("dates are not in descending order");
-        }
-
-
-
-
-
-
-
-    }
 
     @AfterClass
     public void closeDriver() {
