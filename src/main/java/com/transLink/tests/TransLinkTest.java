@@ -85,8 +85,10 @@ public class TransLinkTest {
         // 1) Open the url of the page
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
 
-        BrowserUtils.scrollIntoMiddleView(BrowserUtils.getElement(MainPage.buzzerBlogFeature));
-        BrowserUtils.waitForVisibility(BrowserUtils.getElement(MainPage.buzzerBlogFeature),5);
+        WebElement buzzerBlog_asWebElement = BrowserUtils.getElement(MainPage.buzzerBlogFeature);
+
+        BrowserUtils.scrollIntoMiddleView(buzzerBlog_asWebElement);
+        BrowserUtils.waitForVisibility(buzzerBlog_asWebElement,5);
 
         List< WebElement> timeList = Driver.getDriver().findElements(By.xpath("(//section[@class='CopyMain'])//ul[@class='spacedList menu']//time"));
 
