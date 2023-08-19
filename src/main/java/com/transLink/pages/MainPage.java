@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 public class MainPage {
 
     public static By scheduleMapLink = By.linkText("Schedules and Maps");
+    public static By buzzerBlogFeature = By.xpath("//h3[text()='Buzzer Blog']");
 
     /**
      * Select schedules and maps link and click Bus option
